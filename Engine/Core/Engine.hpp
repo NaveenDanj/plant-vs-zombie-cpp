@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 #include "../Renderer/Renderer.hpp"
 #include "Time.hpp"
+#include "../Input/Input.hpp"
 
 class Engine
 {
@@ -17,4 +18,5 @@ private:
     Renderer renderer;
     bool running = false;
     Time time;
+    Input input;
 };

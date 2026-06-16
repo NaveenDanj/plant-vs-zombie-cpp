@@ -38,14 +38,23 @@ void Engine::Run()
             }
         }
 
+        input.Update();
         time.Update();
-        float dt = time.GetDeltaTime();
-        std::cout << "Delta Time: " << dt << " seconds" << std::endl;
 
         SDL_Delay(16);
         renderer.BeginFrame();
         // Game update and rendering logic would go here
         renderer.EndFrame();
+
+        if (input.IsKeyPressed(SDLK_ESCAPE))
+        {
+            running = false;
+        }
+
+        if (input.IsKeyPressed(SDLK_SPACE))
+        {
+            std::cout << "Space key is pressed!" << std::endl;
+        }
     }
 }
 
