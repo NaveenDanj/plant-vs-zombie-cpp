@@ -38,6 +38,10 @@ void Engine::Run()
             }
         }
 
+        time.Update();
+        float dt = time.GetDeltaTime();
+        std::cout << "Delta Time: " << dt << " seconds" << std::endl;
+
         SDL_Delay(16);
         renderer.BeginFrame();
         // Game update and rendering logic would go here

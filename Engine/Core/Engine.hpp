@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL2/SDL.h>
 #include "../Renderer/Renderer.hpp"
+#include "Time.hpp"
 
 class Engine
 {
@@ -15,4 +16,5 @@ private:
     SDL_Window *window = nullptr;
     Renderer renderer;
     bool running = false;
+    Time time;
 };
