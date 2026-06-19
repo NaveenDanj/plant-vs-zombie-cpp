@@ -46,14 +46,19 @@ void Engine::Run()
         // Game update and rendering logic would go here
         renderer.EndFrame();
 
-        if (input.IsKeyPressed(SDLK_ESCAPE))
+        if (input.IsKeyPressed(SDL_SCANCODE_ESCAPE))
         {
             running = false;
         }
 
-        if (input.IsKeyPressed(SDLK_SPACE))
+        if (input.IsKeyPressed(SDL_SCANCODE_SPACE))
         {
             std::cout << "Space key is pressed!" << std::endl;
+        }
+
+        if (input.IsMouseButtonClicked(SDL_BUTTON_LEFT))
+        {
+            std::cout << "Left mouse button is clicked!" << std::endl;
         }
     }
 }
