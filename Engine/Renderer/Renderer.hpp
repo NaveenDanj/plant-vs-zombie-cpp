@@ -6,6 +6,7 @@ class Renderer
 public:
     bool Init(SDL_Window *window);
     void BeginFrame();
+    void DrawFilledRectangle(const SDL_FRect &rectangle, const SDL_Color &color);
     void EndFrame();
     void Shutdown();
 

@@ -6,7 +6,7 @@ void Input::Update()
     keyboardState = SDL_GetKeyboardState(&keyboardLength);
 }
 
-bool Input::IsKeyPressed(SDL_Scancode key)
+bool Input::IsKeyPressed(SDL_Scancode key) const
 {
     if (keyboardState == nullptr ||
         key == SDL_SCANCODE_UNKNOWN ||
@@ -18,7 +18,7 @@ bool Input::IsKeyPressed(SDL_Scancode key)
     return keyboardState[key] != 0;
 }
 
-bool Input::IsKeyReleased(SDL_Scancode key)
+bool Input::IsKeyReleased(SDL_Scancode key) const
 {
     if (keyboardState == nullptr ||
         key == SDL_SCANCODE_UNKNOWN ||

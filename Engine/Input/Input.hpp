@@ -5,8 +5,8 @@ class Input
 {
 public:
     void Update();
-    bool IsKeyPressed(SDL_Scancode key);
-    bool IsKeyReleased(SDL_Scancode key);
+    bool IsKeyPressed(SDL_Scancode key) const;
+    bool IsKeyReleased(SDL_Scancode key) const;
     bool IsMouseButtonPressed(uint8_t button);
     bool IsMouseButtonClicked(uint8_t button); // Optional: Implement if you want to detect clicks (press + release)
     bool IsMouseButtonReleased(uint8_t button);

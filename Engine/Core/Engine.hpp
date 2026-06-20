@@ -1,8 +1,12 @@
 #pragma once
 #include <SDL2/SDL.h>
-#include "../Renderer/Renderer.hpp"
-#include "Time.hpp"
+#include "../ECS/World.hpp"
 #include "../Input/Input.hpp"
+#include "../Renderer/Renderer.hpp"
+#include "../Systems/MovementSystem.hpp"
+#include "../Systems/PlayerControllerSystem.hpp"
+#include "../Systems/RenderSystem.hpp"
+#include "Time.hpp"
 
 class Engine
 {
@@ -10,13 +14,23 @@ public:
     bool Init();
     void Run();
     void Shutdown();
-    const uint16_t WINDOW_WIDTH = 800;
-    const uint16_t WINDOW_HEIGHT = 600;
 
 private:
+    void CreatePlayer();
+
+    static constexpr uint16_t WINDOW_WIDTH = 800;
+    static constexpr uint16_t WINDOW_HEIGHT = 600;
+
     SDL_Window *window = nullptr;
-    Renderer renderer;
     bool running = false;
+
+    Renderer renderer;
     Time time;
     Input input;
+    World world;
+    Entity player = INVALID_ENTITY;
+
+    PlayerControllerSystem playerControllerSystem;
+    MovementSystem movementSystem;
+    RenderSystem renderSystem;
 };

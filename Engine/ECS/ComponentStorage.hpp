@@ -1,6 +1,6 @@
 #pragma once
 #include <unordered_map>
-#include <Entity.hpp>
+#include "Entity.hpp"
 
 template <typename T>
 class ComponentStorage
@@ -26,7 +26,17 @@ public:
         return components.at(entity);
     }
 
+    const T &Get(Entity entity) const
+    {
+        return components.at(entity);
+    }
+
     std::unordered_map<Entity, T> &GetAll()
+    {
+        return components;
+    }
+
+    const std::unordered_map<Entity, T> &GetAll() const
     {
         return components;
     }

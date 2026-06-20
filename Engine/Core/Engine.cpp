@@ -22,7 +22,31 @@ bool Engine::Init()
         return false;
     }
 
+    CreatePlayer();
     return true;
+}
+
+void Engine::CreatePlayer()
+{
+    constexpr float playerWidth = 50.0f;
+    constexpr float playerHeight = 50.0f;
+
+    player = world.CreateEntity();
+    world.transforms.Add(
+        player,
+        Transform{
+            (WINDOW_WIDTH - playerWidth) / 2.0f,
+            (WINDOW_HEIGHT - playerHeight) / 2.0f});
+    world.velocities.Add(player, Velocity{});
+    world.rectangles.Add(
+        player,
+        Rectangle{
+            playerWidth,
+            playerHeight,
+            46,
+            160,
+            67,
+            255});
 }
 
 void Engine::Run()
@@ -41,25 +65,19 @@ void Engine::Run()
         input.Update();
         time.Update();
 
-        SDL_Delay(16);
-        renderer.BeginFrame();
-        // Game update and rendering logic would go here
-        renderer.EndFrame();
-
         if (input.IsKeyPressed(SDL_SCANCODE_ESCAPE))
         {
             running = false;
         }
 
-        if (input.IsKeyPressed(SDL_SCANCODE_SPACE))
-        {
-            std::cout << "Space key is pressed!" << std::endl;
-        }
+        playerControllerSystem.Update(world, player, input);
+        movementSystem.Update(world, time.GetDeltaTime());
 
-        if (input.IsMouseButtonClicked(SDL_BUTTON_LEFT))
-        {
-            std::cout << "Left mouse button is clicked!" << std::endl;
-        }
+        renderer.BeginFrame();
+        renderSystem.Render(world, renderer);
+        renderer.EndFrame();
+
+        SDL_Delay(16);
     }
 }
 

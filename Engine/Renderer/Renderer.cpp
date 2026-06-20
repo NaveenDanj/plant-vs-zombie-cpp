@@ -8,8 +8,14 @@ bool Renderer::Init(SDL_Window *window)
 
 void Renderer::BeginFrame()
 {
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 1);
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderClear(renderer);
+}
+
+void Renderer::DrawFilledRectangle(const SDL_FRect &rectangle, const SDL_Color &color)
+{
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+    SDL_RenderFillRectF(renderer, &rectangle);
 }
 
 void Renderer::EndFrame()
