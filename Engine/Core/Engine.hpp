@@ -7,6 +7,7 @@
 #include "../Systems/PlayerControllerSystem.hpp"
 #include "../Systems/RenderSystem.hpp"
 #include "Time.hpp"
+#include "../../Game/Game.hpp"
 
 class Engine
 {
@@ -16,8 +17,6 @@ public:
     void Shutdown();
 
 private:
-    void CreatePlayer();
-
     static constexpr uint16_t WINDOW_WIDTH = 800;
     static constexpr uint16_t WINDOW_HEIGHT = 600;
 
@@ -28,9 +27,9 @@ private:
     Time time;
     Input input;
     World world;
-    Entity player = INVALID_ENTITY;
 
     PlayerControllerSystem playerControllerSystem;
     MovementSystem movementSystem;
     RenderSystem renderSystem;
+    Game game;
 };

@@ -1,4 +1,5 @@
 #include "Engine.hpp"
+#include "../../Game/Grid.hpp"
 #include <iostream>
 
 bool Engine::Init()
@@ -22,31 +23,9 @@ bool Engine::Init()
         return false;
     }
 
-    CreatePlayer();
+    game.Init(world);
+
     return true;
-}
-
-void Engine::CreatePlayer()
-{
-    constexpr float playerWidth = 50.0f;
-    constexpr float playerHeight = 50.0f;
-
-    player = world.CreateEntity();
-    world.transforms.Add(
-        player,
-        Transform{
-            (WINDOW_WIDTH - playerWidth) / 2.0f,
-            (WINDOW_HEIGHT - playerHeight) / 2.0f});
-    world.velocities.Add(player, Velocity{});
-    world.rectangles.Add(
-        player,
-        Rectangle{
-            playerWidth,
-            playerHeight,
-            46,
-            160,
-            67,
-            255});
 }
 
 void Engine::Run()
@@ -70,11 +49,33 @@ void Engine::Run()
             running = false;
         }
 
-        playerControllerSystem.Update(world, player, input);
+        game.Update(world, input, time.GetDeltaTime());
         movementSystem.Update(world, time.GetDeltaTime());
 
         renderer.BeginFrame();
         renderSystem.Render(world, renderer);
+        SDL_Renderer *sdlRenderer = renderer.GetSDLRenderer();
+
+        SDL_SetRenderDrawColor(
+            sdlRenderer,
+            100,
+            100,
+            100,
+            255);
+
+        for (int i = 0; i < Grid::COLS + 1; ++i)
+        {
+            int x = Grid::START_X + i * Grid::CELL_WIDTH;
+            SDL_RenderDrawLine(sdlRenderer, x, Grid::START_Y, x, Grid::START_Y + Grid::ROWS * Grid::CELL_HEIGHT);
+        }
+
+        for (int j = 0; j < Grid::ROWS + 1; ++j)
+        {
+            int y = Grid::START_Y + j * Grid::CELL_HEIGHT;
+            SDL_RenderDrawLine(sdlRenderer, Grid::START_X, y, Grid::START_X + Grid::COLS * Grid::CELL_WIDTH, y);
+        }
+
+        game.Render(world, renderer);
         renderer.EndFrame();
 
         SDL_Delay(16);

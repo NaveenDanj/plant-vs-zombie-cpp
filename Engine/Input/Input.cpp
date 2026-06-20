@@ -56,3 +56,8 @@ bool Input::IsMouseButtonReleased(uint8_t button)
     uint32_t mouseState = SDL_GetMouseState(nullptr, nullptr);
     return (mouseState & SDL_BUTTON(button)) == 0;
 }
+
+void Input::GetMousePosition(int &x, int &y) const
+{
+    SDL_GetMouseState(&x, &y);
+}

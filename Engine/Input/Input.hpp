@@ -10,6 +10,7 @@ public:
     bool IsMouseButtonPressed(uint8_t button);
     bool IsMouseButtonClicked(uint8_t button); // Optional: Implement if you want to detect clicks (press + release)
     bool IsMouseButtonReleased(uint8_t button);
+    void GetMousePosition(int &x, int &y) const;
 
 private:
     const uint8_t *keyboardState = nullptr;
