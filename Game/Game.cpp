@@ -27,15 +27,14 @@ void Game::Update(World &world, Input &input, float deltaTime)
     const int row = cellPosition.y;
     const int col = cellPosition.x;
 
-    hoveredCell = std::nullopt;
     if (Grid::IsValidCell(row, col))
     {
-        hoveredCell = GridCell{row, col};
+        cursorState.hoveredCell = GridCell{row, col};
     }
 
-    if (input.IsMouseButtonClicked(SDL_BUTTON_LEFT) && hoveredCell.has_value())
+    if (input.IsMouseButtonClicked(SDL_BUTTON_LEFT) && cursorState.hoveredCell.has_value())
     {
-        std::cout << "Clicked on cell: (" << hoveredCell->row << ", " << hoveredCell->col << ")" << std::endl;
+        playerPlacementController.OnCellClicked(&world, cursorState.hoveredCell->row, cursorState.hoveredCell->col);
     }
 }
 
@@ -49,12 +48,12 @@ void Game::Render(const World &world, Renderer &renderer)
 
 void Game::DrawGrid(Renderer &renderer) const
 {
-    const SDL_Color hoverColor{255, 0, 0, 96};
+    const SDL_Color hoverColor{255, 0, 0, 10};
     const SDL_Color lineColor{0, 0, 0, 255};
 
-    if (hoveredCell.has_value())
+    if (cursorState.hoveredCell.has_value())
     {
-        renderer.DrawFilledRectangle(Grid::GetCellRect(hoveredCell->row, hoveredCell->col), hoverColor);
+        renderer.DrawFilledRectangle(Grid::GetCellRect(cursorState.hoveredCell->row, cursorState.hoveredCell->col), hoverColor);
     }
 
     for (int col = 0; col <= Grid::COLS; ++col)

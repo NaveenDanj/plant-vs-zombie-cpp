@@ -16,6 +16,8 @@ add_executable(Game ${SOURCES})
 
 target_include_directories(Game PRIVATE
     .
+    Game
+    Engine
 )
 
 target_link_libraries(Game PRIVATE

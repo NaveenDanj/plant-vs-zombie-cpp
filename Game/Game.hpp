@@ -4,6 +4,8 @@
 #include "../Engine/Input/Input.hpp"
 #include "../Engine/Renderer/Renderer.hpp"
 #include <optional>
+#include "../Game/Systems/PlacementController.hpp"
+#include "../Game/Systems/CursorState.hpp"
 
 class Game
 {
@@ -14,6 +16,7 @@ public:
 
 private:
     void DrawGrid(Renderer &renderer) const;
-
+    PlayerPlacementController playerPlacementController;
+    CursorState cursorState;
     std::optional<GridCell> hoveredCell;
 };
