@@ -15,6 +15,5 @@ public:
 private:
     const uint8_t *keyboardState = nullptr;
     int keyboardLength = 0;
-    // add state to track the mouse button click event
     bool mouseButtonClicked = false;
 };

@@ -41,6 +41,11 @@ public:
         return components;
     }
 
+    void ClearAll()
+    {
+        components.clear();
+    }
+
 private:
     std::unordered_map<Entity, T> components;
 };

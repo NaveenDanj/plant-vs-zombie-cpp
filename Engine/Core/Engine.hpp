@@ -4,8 +4,6 @@
 #include "../Input/Input.hpp"
 #include "../Renderer/Renderer.hpp"
 #include "../Systems/MovementSystem.hpp"
-#include "../Systems/PlayerControllerSystem.hpp"
-#include "../Systems/RenderSystem.hpp"
 #include "Time.hpp"
 #include "../../Game/Game.hpp"
 
@@ -17,7 +15,7 @@ public:
     void Shutdown();
 
 private:
-    static constexpr uint16_t WINDOW_WIDTH = 800;
+    static constexpr uint16_t WINDOW_WIDTH = 1000;
     static constexpr uint16_t WINDOW_HEIGHT = 600;
 
     SDL_Window *window = nullptr;
@@ -28,8 +26,6 @@ private:
     Input input;
     World world;
 
-    PlayerControllerSystem playerControllerSystem;
     MovementSystem movementSystem;
-    RenderSystem renderSystem;
     Game game;
 };

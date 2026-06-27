@@ -1,5 +1,4 @@
 #include "Engine.hpp"
-#include "../../Game/Grid.hpp"
 #include <iostream>
 
 bool Engine::Init()
@@ -53,28 +52,6 @@ void Engine::Run()
         movementSystem.Update(world, time.GetDeltaTime());
 
         renderer.BeginFrame();
-        renderSystem.Render(world, renderer);
-        SDL_Renderer *sdlRenderer = renderer.GetSDLRenderer();
-
-        SDL_SetRenderDrawColor(
-            sdlRenderer,
-            100,
-            100,
-            100,
-            255);
-
-        for (int i = 0; i < Grid::COLS + 1; ++i)
-        {
-            int x = Grid::START_X + i * Grid::CELL_WIDTH;
-            SDL_RenderDrawLine(sdlRenderer, x, Grid::START_Y, x, Grid::START_Y + Grid::ROWS * Grid::CELL_HEIGHT);
-        }
-
-        for (int j = 0; j < Grid::ROWS + 1; ++j)
-        {
-            int y = Grid::START_Y + j * Grid::CELL_HEIGHT;
-            SDL_RenderDrawLine(sdlRenderer, Grid::START_X, y, Grid::START_X + Grid::COLS * Grid::CELL_WIDTH, y);
-        }
-
         game.Render(world, renderer);
         renderer.EndFrame();
 
