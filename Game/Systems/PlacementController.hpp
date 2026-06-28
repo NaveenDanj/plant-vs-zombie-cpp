@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "../../Game/PlayerTools/PlayerTool.hpp"
+#include "Game/PlayerTools/PlayerTool.hpp"
 
 class PlayerPlacementController
 {

@@ -1,6 +1,6 @@
 #include "Game.hpp"
 #include "Grid.hpp"
-#include "../Engine/Systems/RenderSystem.hpp"
+#include "Engine/Systems/RenderSystem.hpp"
 #include <iostream>
 
 void Game::Init(World &world)

@@ -1,11 +1,11 @@
 #pragma once
 #include <SDL2/SDL.h>
-#include "../ECS/World.hpp"
-#include "../Input/Input.hpp"
-#include "../Renderer/Renderer.hpp"
-#include "../Systems/MovementSystem.hpp"
+#include "Engine/ECS/World.hpp"
+#include "Engine/Input/Input.hpp"
+#include "Engine/Renderer/Renderer.hpp"
+#include "Engine/Systems/MovementSystem.hpp"
 #include "Time.hpp"
-#include "../../Game/Game.hpp"
+#include "Game/Game.hpp"
 
 class Engine
 {

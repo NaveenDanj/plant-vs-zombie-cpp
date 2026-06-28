@@ -2,10 +2,10 @@
 #include "Entity.hpp"
 #include "ComponentStorage.hpp"
 
-#include "../Components/Rectangle.hpp"
-#include "../Components/Transform.hpp"
-#include "../Components/Velocity.hpp"
-#include "../Components/GridCell.hpp"
+#include "Engine/Components/Rectangle.hpp"
+#include "Engine/Components/Velocity.hpp"
+#include "Engine/Components/GridCell.hpp"
+#include "Engine/Components/Transform.hpp"
 
 class World
 {

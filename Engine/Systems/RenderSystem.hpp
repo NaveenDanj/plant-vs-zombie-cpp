@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../ECS/World.hpp"
-#include "../Renderer/Renderer.hpp"
+#include "Engine/ECS/World.hpp"
+#include "Engine/Renderer/Renderer.hpp"
 
 class RenderSystem
 {

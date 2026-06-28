@@ -1,11 +1,11 @@
 #pragma once
-#include "../Engine/Components/GridCell.hpp"
-#include "../Engine/ECS/World.hpp"
-#include "../Engine/Input/Input.hpp"
-#include "../Engine/Renderer/Renderer.hpp"
+#include "Engine/Components/GridCell.hpp"
+#include "Engine/ECS/World.hpp"
+#include "Engine/Input/Input.hpp"
+#include "Engine/Renderer/Renderer.hpp"
 #include <optional>
-#include "../Game/Systems/PlacementController.hpp"
-#include "../Game/Systems/CursorState.hpp"
+#include "Game/Systems/PlacementController.hpp"
+#include "Game/Systems/CursorState.hpp"
 
 class Game
 {

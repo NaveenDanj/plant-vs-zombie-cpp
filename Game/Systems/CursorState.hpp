@@ -1,7 +1,7 @@
 #pragma once
-#include "../../Engine/Components/GridCell.hpp"
+#include "Engine/Components/GridCell.hpp"
 #include <optional>
-#include "../../Engine/ECS/Entity.hpp"
+#include "Engine/ECS/Entity.hpp"
 
 struct CursorState
 {

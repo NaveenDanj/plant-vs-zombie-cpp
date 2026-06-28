@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../Engine/Core/Engine.hpp"
+#include "Engine/Core/Engine.hpp"
 
 int main()
 {
