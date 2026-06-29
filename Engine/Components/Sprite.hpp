@@ -1,9 +1,12 @@
 #pragma once
 #include <SDL2/SDL_render.h>
+#include <string>
+#include <iostream>
 
 struct Sprite
 {
-    SDL_Texture *texture = nullptr;
-    int width = 0;
-    int height = 0;
+    std::string texture;
+    SDL_Rect source;
+    float width = 0;
+    float height = 0;
 };

@@ -6,6 +6,7 @@
 #include "Engine/Components/Velocity.hpp"
 #include "Engine/Components/GridCell.hpp"
 #include "Engine/Components/Transform.hpp"
+#include "Engine/Components/Plant.hpp"
 
 class World
 {
@@ -20,6 +21,7 @@ public:
     ComponentStorage<Velocity> velocities;
     ComponentStorage<Rectangle> rectangles;
     ComponentStorage<GridCell> gridCells;
+    ComponentStorage<Plant> plants;
 
 private:
     Entity nextEntity = 1;

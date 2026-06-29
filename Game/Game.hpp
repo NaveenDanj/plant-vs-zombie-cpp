@@ -19,4 +19,5 @@ private:
     PlayerPlacementController playerPlacementController;
     CursorState cursorState;
     std::optional<GridCell> hoveredCell;
+    PlayerTool *currentTool = nullptr;
 };

@@ -1,11 +1,14 @@
 #include "Game.hpp"
 #include "Grid.hpp"
 #include "Engine/Systems/RenderSystem.hpp"
+#include "Game/PlayerTools/PlantTool.hpp"
 #include <iostream>
 
 void Game::Init(World &world)
 {
     std::cout << "Game Initialized" << world.velocities.GetAll().size() << std::endl;
+    PlayerTool *platTool = new PlantPlacementTool();
+    playerPlacementController.SetTool(platTool);
 }
 
 void Game::Update(World &world, Input &input, float deltaTime)

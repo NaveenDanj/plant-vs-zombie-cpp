@@ -2,17 +2,16 @@
 #include "Game/PlayerTools/PlayerTool.hpp"
 #include <iostream>
 #include "Engine/ECS/World.hpp"
+#include "Engine/Components/Plant.hpp"
 
 class PlantPlacementTool : public PlayerTool
 {
 public:
-    void OnCellClicked(World *world, int row, int col) override
-    {
-        std::cout << "Plant placed at cell (" << row << ", " << col << ")" << std::endl;
-    }
+    void SelectPlant(PlantType plantType);
+    void OnCellClicked(World *world, int row, int col) override;
+    void OnCellHovered(World *world, int row, int col) override;
 
-    void OnCellHovered(World *world, int row, int col) override
-    {
-        std::cout << "Cell hovered at (" << row << ", " << col << ")" << std::endl;
-    }
+private:
+    PlantType selectedPlantType = PlantType::NONE;
+    bool IsCellOccupied(World *world, int row, int col);
 };

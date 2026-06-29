@@ -1,7 +1,8 @@
 #pragma once
-
+#include <iostream>
 enum class PlantType
 {
+    NONE,
     PEASHOOTER,
     SUNFLOWER,
     WALLNUT,
@@ -11,4 +12,7 @@ enum class PlantType
 struct Plant
 {
     PlantType type;
+    int cost;
+    int cooldown;
+    std::string textureName;
 };
