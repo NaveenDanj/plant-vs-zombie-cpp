@@ -7,6 +7,7 @@
 #include "Engine/Components/GridCell.hpp"
 #include "Engine/Components/Transform.hpp"
 #include "Engine/Components/Plant.hpp"
+#include "Engine/Components/Sprite.hpp"
 
 class World
 {
@@ -22,6 +23,7 @@ public:
     ComponentStorage<Rectangle> rectangles;
     ComponentStorage<GridCell> gridCells;
     ComponentStorage<Plant> plants;
+    ComponentStorage<Sprite> sprites;
 
 private:
     Entity nextEntity = 1;

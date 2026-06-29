@@ -11,32 +11,16 @@ public:
     {
         for (const auto &[entity, transform] : world.transforms.GetAll())
         {
-            // if (world.rectangles.Has(entity))
-            // {
-            //     const auto &rectangle = world.rectangles.Get(entity);
-            //     const SDL_FRect destination{
-            //         transform.x,
-            //         transform.y,
-            //         rectangle.width,
-            //         rectangle.height};
-            //     const SDL_Color color{
-            //         rectangle.red,
-            //         rectangle.green,
-            //         rectangle.blue,
-            //         rectangle.alpha};
-
-            //     renderer.DrawFilledRectangle(destination, color);
-            // }
-
-            if (world.plants.Has(entity))
+            if (world.sprites.Has(entity))
             {
+                const auto &sprite = world.sprites.Get(entity);
                 const SDL_FRect destination{
-                    transform.x + (Grid::CELL_WIDTH - 50.0f) / 2,
-                    transform.y + (Grid::CELL_HEIGHT - 50.0f) / 2,
-                    50.0f,
-                    50.0f};
+                    transform.x + (Grid::CELL_WIDTH - sprite.width) / 2,
+                    transform.y + (Grid::CELL_HEIGHT - sprite.height) / 2,
+                    sprite.width,
+                    sprite.height};
 
-                renderer.DrawTexture("peashooter", destination);
+                renderer.DrawTexture(sprite.texture, sprite.source, destination);
             }
         }
     }

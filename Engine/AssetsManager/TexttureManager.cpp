@@ -1,8 +1,14 @@
 #include "TextureManager.hpp"
 #include <SDL2/SDL_image.h>
 
+#ifndef GAME_ASSET_DIR
+#define GAME_ASSET_DIR "assets/"
+#endif
+
 void TextureManager::LoadTexture(SDL_Renderer *renderer, const std::string &id, const std::string &path)
 {
+
+    const std::string assetPath = std::string(GAME_ASSET_DIR);
 
     if (textures.find(id) != textures.end())
     {
@@ -10,7 +16,7 @@ void TextureManager::LoadTexture(SDL_Renderer *renderer, const std::string &id, 
         return;
     }
 
-    SDL_Surface *surface = IMG_Load(path.c_str());
+    SDL_Surface *surface = IMG_Load((assetPath + path).c_str());
     if (!surface)
     {
         std::cerr << "Failed to load surface from " << path << ": " << IMG_GetError() << std::endl;
