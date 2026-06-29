@@ -7,7 +7,8 @@
 void Game::Init(World &world)
 {
     std::cout << "Game Initialized" << world.velocities.GetAll().size() << std::endl;
-    PlayerTool *plantTool = new PlantPlacementTool();
+    PlantPlacementTool *plantTool = new PlantPlacementTool();
+    plantTool->SelectPlant(PlantType::SUNFLOWER);
     playerPlacementController.SetTool(plantTool);
 }
 
