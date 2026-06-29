@@ -7,8 +7,8 @@
 void Game::Init(World &world)
 {
     std::cout << "Game Initialized" << world.velocities.GetAll().size() << std::endl;
-    PlayerTool *platTool = new PlantPlacementTool();
-    playerPlacementController.SetTool(platTool);
+    PlayerTool *plantTool = new PlantPlacementTool();
+    playerPlacementController.SetTool(plantTool);
 }
 
 void Game::Update(World &world, Input &input, float deltaTime)

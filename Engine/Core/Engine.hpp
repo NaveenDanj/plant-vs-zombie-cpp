@@ -4,6 +4,7 @@
 #include "Engine/Input/Input.hpp"
 #include "Engine/Renderer/Renderer.hpp"
 #include "Engine/Systems/MovementSystem.hpp"
+#include "Engine/Systems/AnimationSystem.hpp"
 #include "Time.hpp"
 #include "Game/Game.hpp"
 
@@ -27,5 +28,6 @@ private:
     World world;
 
     MovementSystem movementSystem;
+    AnimationSystem animationSystem;
     Game game;
 };

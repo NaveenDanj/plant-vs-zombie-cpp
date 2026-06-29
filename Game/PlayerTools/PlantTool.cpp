@@ -21,13 +21,28 @@ void PlantPlacementTool::OnCellClicked(World *world, int row, int col)
 
     GridCell gridCell{row, col};
     Transform transform{static_cast<float>(point.x), static_cast<float>(point.y), 0.0f};
-    Plant plant{PlantPlacementTool::selectedPlantType, 100, 5, "peashooter"};
-    Sprite sprite{"peashooter", {0, 0, 50, 50}, 50.0f, 50.0f};
+    Plant plant{PlantPlacementTool::selectedPlantType, 100, 5, "peashooter-idle"};
+    Sprite sprite{"peashooter-idle", {0, 0, 32, 32}, 32.0f, 32.0f};
+    AnimationClip clip{
+        {
+            {0, 0, 32, 32},
+            {31, 0, 32, 32},
+            {63, 0, 32, 32},
+            {95, 0, 32, 32},
+            {128, 0, 32, 32},
+            {157, 0, 32, 32},
+            {187, 0, 32, 32},
+            {217, 0, 32, 32},
+        },
+        0.1f,
+        true};
+    Animation animation{clip, 0, 0.0f};
 
     world->gridCells.Add(plantEntity, gridCell);
     world->transforms.Add(plantEntity, transform);
     world->plants.Add(plantEntity, plant);
     world->sprites.Add(plantEntity, sprite);
+    world->animations.Add(plantEntity, animation);
 }
 
 void PlantPlacementTool::OnCellHovered(World *world, int row, int col)

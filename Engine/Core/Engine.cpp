@@ -50,7 +50,7 @@ void Engine::Run()
 
         game.Update(world, input, time.GetDeltaTime());
         movementSystem.Update(world, time.GetDeltaTime());
-
+        animationSystem.Update(world, time.GetDeltaTime());
         renderer.BeginFrame();
         game.Render(world, renderer);
         renderer.EndFrame();

@@ -10,7 +10,7 @@ bool Renderer::Init(SDL_Window *window)
     }
 
     textureManager = TextureManager();
-    textureManager.LoadTexture(renderer, "peashooter", "test.png");
+    textureManager.LoadTexture(renderer, "peashooter-idle", "peashooter-idle.png");
 
     return renderer != nullptr;
 }
